@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import { Toggle } from "flowbite-svelte";
     import Knob from "./knob.svelte";
     import ToggleButton from "./toggleButton.svelte";
     import PresetButton from "./presetButton.svelte";
@@ -59,12 +60,19 @@
                 <canvas id='canvas' class='w-full aspect-video rounded-xl mb-[10px]'></canvas>
             </div>
             <div class='flex h-full'>
-                <div class='grid w-full justify-center items-center grid-cols-3 grid-rows-4'>
-                    {#each {length: 12}, idx}
-                        <div class='flex justify-center items-center aspect-square mr-[20px]'>
-                            <PresetButton num={idx + 1}/>
-                        </div>
-                    {/each}
+                <div class='flex flex-col w-full justify-center items-center'>
+                    <div class='grid w-full justify-center items-center grid-cols-3 grid-rows-4'>
+                        {#each {length: 12}, idx}
+                            <div class='flex justify-center items-center aspect-square mr-[20px] mb-[10px]'>
+                                <PresetButton num={idx + 1}/>
+                            </div>
+                        {/each}
+                    </div>
+                    <div class='flex flex-row w-full items-start text-[#B0B0B0] px-2 pt-3'>
+                        <p class='mr-[10px]'>call</p>
+                        <Toggle/>
+                        <p>set</p>
+                    </div>
                 </div>
                 <div class='w-[70%]'></div>
             </div>
