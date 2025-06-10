@@ -12,6 +12,8 @@
             canvas: document.getElementById('canvas') // Canvas should be a canvas DOM element
         });
     });
+
+
 </script>
 
 <svelte:head>

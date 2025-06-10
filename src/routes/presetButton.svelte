@@ -1,12 +1,16 @@
 <script>
     import { Tooltip } from 'flowbite-svelte';
     import { scale } from 'svelte/transition';
-    let { active = false, num } = $props();
+    import { Resolver } from './resolver';
 
+    let resolver = new Resolver('192.168.0.190');
+    let { active = false, num } = $props();
 
     function toggleActive() {
         active = !active;
-        
+        fetch(resolver.resolve('poscall', [num]), {
+            method: 'GET'
+        });
     }
 
     function keyEvent() {
